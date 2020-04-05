@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <div class="midt" id="mainDiv"><h1 id="txtId">Snake</h1></canvas></div>
+    <div class="midt" id="mainDiv"><h1 id="txtId">Bezzerwizzer</h1></canvas></div>
 
     <script>
         var mainDivEl = document.getElementById('mainDiv')
@@ -27,20 +27,35 @@
         canvas.width = canW;
 
         var spaceBetweenSpaces = 20;
+        var radius = 10;
 
         function drawBoard(){
             var tileSize = (boardSize - 7*spaceBetweenSpaces) / 6;
+            // Vertikale bokser
             for (var i=0; i<6; i++){
+                if (i==5){
+                    ctx.font = "30px Arial";
+                    ctx.textAlign = "center";
+                    ctx.fillText("Start", spaceBetweenSpaces + tileSize/2, (i+1)*(tileSize+spaceBetweenSpaces) - tileSize/2, tileSize);
+                    ctx.beginPath();
+                    ctx.arc((i+1)*(spaceBetweenSpaces+tileSize)-tileSize/2, boardSize-spaceBetweenSpaces-tileSize/2, 10, 0, 2*Math.PI);
+                    ctx.fill();
+                }
                 ctx.beginPath();
                 ctx.rect(spaceBetweenSpaces, spaceBetweenSpaces + i*(tileSize+spaceBetweenSpaces), tileSize, tileSize);
                 ctx.rect(boardSize-spaceBetweenSpaces-tileSize, spaceBetweenSpaces + i*(tileSize+spaceBetweenSpaces), tileSize, tileSize);
                 ctx.stroke();
             }
+            // Horisontale bokser
             for(var i=1; i<5; i++){
                 ctx.beginPath();
                 ctx.rect(spaceBetweenSpaces + i*(tileSize+spaceBetweenSpaces), spaceBetweenSpaces, tileSize, tileSize);
                 ctx.rect(spaceBetweenSpaces + i*(tileSize+spaceBetweenSpaces), boardSize-spaceBetweenSpaces-tileSize, tileSize, tileSize);
+                ctx.closePath();
                 ctx.stroke();
+                ctx.beginPath();
+                ctx.arc((i+1)*(spaceBetweenSpaces+tileSize)-tileSize/2, boardSize-spaceBetweenSpaces-tileSize/2, 10, 0, 2*Math.PI);
+                ctx.fill();
             }
         }
 
