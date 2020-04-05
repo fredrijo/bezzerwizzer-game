@@ -21,13 +21,15 @@
         var canH = 640;
         var canW = 640;
 
-        var boardSize = 600;
+        var boardSize = 400;
+
+        var players = 4;
 
         canvas.height = canH;
         canvas.width = canW;
 
         var spaceBetweenSpaces = 20;
-        var radius = 10;
+        var radius = boardSize/100;
 
         function drawBoard(){
             var tileSize = (boardSize - 7*spaceBetweenSpaces) / 6;
@@ -38,7 +40,7 @@
                     ctx.textAlign = "center";
                     ctx.fillText("Start", spaceBetweenSpaces + tileSize/2, (i+1)*(tileSize+spaceBetweenSpaces) - tileSize/2, tileSize);
                     ctx.beginPath();
-                    ctx.arc((i+1)*(spaceBetweenSpaces+tileSize)-tileSize/2, boardSize-spaceBetweenSpaces-tileSize/2, 10, 0, 2*Math.PI);
+                    ctx.arc((i+1)*(spaceBetweenSpaces+tileSize)-tileSize/2, boardSize-spaceBetweenSpaces-tileSize/2, radius, 0, 2*Math.PI);
                     ctx.fill();
                 }
                 ctx.beginPath();
@@ -54,7 +56,7 @@
                 ctx.closePath();
                 ctx.stroke();
                 ctx.beginPath();
-                ctx.arc((i+1)*(spaceBetweenSpaces+tileSize)-tileSize/2, boardSize-spaceBetweenSpaces-tileSize/2, 10, 0, 2*Math.PI);
+                ctx.arc((i+1)*(spaceBetweenSpaces+tileSize)-tileSize/2, boardSize-spaceBetweenSpaces-tileSize/2, radius, 0, 2*Math.PI);
                 ctx.fill();
             }
         }
