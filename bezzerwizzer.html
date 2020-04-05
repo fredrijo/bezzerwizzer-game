@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="midt" id="mainDiv"><h1 id="txtId">Snake</h1></canvas></div>
+
+    <script>
+        var mainDivEl = document.getElementById('mainDiv')
+        var canvas = document.createElement('canvas');
+        canvas.id = "idCanvas"
+        mainDivEl.appendChild(canvas);
+
+        var ctx = canvas.getContext('2d');
+
+        var canH = 640;
+        var canW = 640;
+
+        var boardSize = 600;
+
+        canvas.height = canH;
+        canvas.width = canW;
+
+        var spaceBetweenSpaces = 20;
+
+        function drawBoard(){
+            var tileSize = (boardSize - 7*spaceBetweenSpaces) / 6;
+            for (var i=0; i<6; i++){
+                ctx.beginPath();
+                ctx.rect(spaceBetweenSpaces, spaceBetweenSpaces + i*(tileSize+spaceBetweenSpaces), tileSize, tileSize);
+                ctx.rect(boardSize-spaceBetweenSpaces-tileSize, spaceBetweenSpaces + i*(tileSize+spaceBetweenSpaces), tileSize, tileSize);
+                ctx.stroke();
+            }
+            for(var i=1; i<5; i++){
+                ctx.beginPath();
+                ctx.rect(spaceBetweenSpaces + i*(tileSize+spaceBetweenSpaces), spaceBetweenSpaces, tileSize, tileSize);
+                ctx.rect(spaceBetweenSpaces + i*(tileSize+spaceBetweenSpaces), boardSize-spaceBetweenSpaces-tileSize, tileSize, tileSize);
+                ctx.stroke();
+            }
+        }
+
+        drawBoard();
+    </script>
+</body>
+</html>
