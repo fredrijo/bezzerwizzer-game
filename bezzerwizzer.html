@@ -19,7 +19,7 @@
         var ctx = canvas.getContext('2d');
 
         var canH = 640;
-        var canW = 640;
+        var canW = 1080;
 
         var boardSize = 400;
 
@@ -30,6 +30,8 @@
 
         var spaceBetweenSpaces = 20;
         var radius = boardSize/100;
+
+        var colorList = ["red", "green", "blue", "pink"]
 
         function drawBoard(){
             var tileSize = (boardSize - 7*spaceBetweenSpaces) / 6;
@@ -61,7 +63,52 @@
             }
         }
 
+        function drawPlayerBoards(){
+            for (var i=0; i<players; i++){
+                drawOnePlayerBoard(spaceBetweenSpaces+i*(playerBoardHeight+spaceBetweenSpaces), colorList[i]);
+            }
+        }
+
+        var playerBoardHeight = 80;
+        var playerBoardWidth = 7*playerBoardHeight;
+        var playerBoxSize = playerBoardHeight*0.6;
+        var playerBoxSpacing = (playerBoardHeight-playerBoxSize)/2;
+
+        function drawOnePlayerBoard(y, color){
+            var initialX = boardSize + 2*spaceBetweenSpaces;
+            ctx.beginPath();
+            ctx.rect(initialX, y, playerBoardWidth, playerBoardHeight);
+            ctx.strokeStyle = color;
+            ctx.stroke();
+            for(var i=0; i<7; i++){
+                if(i < 3){
+                    var text = "Z";
+                    if(i < 2){
+                        text = "B";
+                    }
+                    ctx.beginPath();
+                    ctx.textAlign = "center";
+                    ctx.fillStyle = color;
+                    ctx.fillText(text, initialX + playerBoxSpacing+i*playerBoardHeight + playerBoxSize/2, y+playerBoxSize+playerBoxSpacing, playerBoxSize);
+                }
+                else{
+                    ctx.beginPath();
+                    var numberOfDots = i-2;
+                    var distanceBetween = playerBoxSize/(numberOfDots + 1);
+                    for (var j=0; j<numberOfDots; j++){
+                        ctx.arc(initialX + playerBoxSpacing+i*playerBoardHeight + (j+1)*distanceBetween, y + playerBoxSpacing*3/4, playerBoxSpacing/8, 0, 2*Math.PI);
+                        ctx.fill();
+                    }
+                }
+                ctx.beginPath();
+                ctx.rect(initialX + playerBoxSpacing+i*playerBoardHeight, y+playerBoxSpacing*3/2, playerBoxSize, playerBoxSize);
+                ctx.strokeStyle = color;
+                ctx.stroke();
+            }
+        }
+
         drawBoard();
+        drawPlayerBoards();
     </script>
 </body>
 </html>
