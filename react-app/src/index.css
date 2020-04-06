@@ -1,0 +1,89 @@
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+  color: white;
+}
+
+ol, ul {
+  padding-left: 30px;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.square, 
+.square-hidden,
+.player-square-red, 
+.player-square-green, 
+.player-square-blue, 
+.player-square-pink {
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 60px;
+  margin: 5px;
+  padding: 0;
+  text-align: center;
+  width: 60px;
+  color: #dddddd;
+  border: 2px solid #999;
+}
+.square {
+  background: #061b0c;
+}
+
+.player-square-red {
+  background: #e90404;
+  border: 2px solid #690303;
+}
+.player-square-pink {
+  background: #f874f2;
+  border: 2px solid #8d4189;
+}
+.player-square-blue {
+  background: #035dd3;
+  border: 2px solid #023374;
+}
+.player-square-green {
+  background: #069e1a;
+  border: 2px solid #044d0e;
+}
+
+.square-hidden {
+  visibility: hidden;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+
+.game-board {
+  background: radial-gradient(circle, rgba(41,172,42,1) 0%, rgb(12, 51, 12) 100%);
+  padding: 30px;
+
+}
+.player-board {
+  padding: 30px;
+  background: radial-gradient(circle, rgb(110, 121, 110) 0%, rgb(190, 214, 190) 100%);
+}
