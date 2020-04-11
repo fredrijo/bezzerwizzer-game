@@ -1,29 +1,33 @@
 body {
   font: 14px "Century Gothic", Futura, sans-serif;
   margin: 20px;
-  color: white;
+  color: black;
+  background:  rgb(226, 231, 226) 50%;
 }
-
-ol, ul {
-  padding-left: 30px;
+.top, .bottom {
+  margin-left: 60px;
+  width: 50%;
+  padding: 10px;
 }
-
-.board-row:after {
-  clear: both;
-  content: "";
-  display: table;
-}
-
-.status {
-  margin-bottom: 10px;
+.new-game {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  padding: 0;
+  text-align: center;
+  width: 200px;
+  background: #dddddd;
+  color: #061b0c;
+  border: 2px solid #999;
 }
 
 .square, 
 .square-hidden,
-.player-square-red, 
-.player-square-green, 
-.player-square-blue, 
-.player-square-pink {
+.square-red, 
+.square-green, 
+.square-blue, 
+.square-pink {
   float: left;
   font-size: 24px;
   font-weight: bold;
@@ -32,6 +36,7 @@ ol, ul {
   margin: 5px;
   padding: 0;
   text-align: center;
+  vertical-align: middle;
   width: 60px;
   color: #dddddd;
   border: 2px solid #999;
@@ -40,23 +45,22 @@ ol, ul {
   background: #061b0c;
 }
 
-.player-square-red {
+.square-red {
   background: #e90404;
   border: 2px solid #690303;
 }
-.player-square-pink {
+.square-pink {
   background: #f874f2;
   border: 2px solid #8d4189;
 }
-.player-square-blue {
+.square-blue {
   background: #035dd3;
   border: 2px solid #023374;
 }
-.player-square-green {
+.square-green {
   background: #069e1a;
   border: 2px solid #044d0e;
 }
-
 .square-hidden {
   visibility: hidden;
 }
@@ -72,6 +76,7 @@ ol, ul {
 .game {
   display: flex;
   flex-direction: row;
+  vertical-align: middle;
 }
 
 .game-info {
@@ -79,11 +84,21 @@ ol, ul {
 }
 
 .game-board {
-  background: radial-gradient(circle, rgba(41,172,42,1) 0%, rgb(12, 51, 12) 100%);
+  width: 450px;
   padding: 30px;
+  margin: 30px;
+  background: radial-gradient(circle, rgba(41,172,42,1) 0%, rgb(12, 51, 12) 100%);
 
 }
 .player-board {
   padding: 30px;
+  margin: 30px;
   background: radial-gradient(circle, rgb(110, 121, 110) 0%, rgb(190, 214, 190) 100%);
+}
+
+.visible {
+  opacity: 1.0;
+}
+.blurred {
+  opacity: 0.3;
 }
