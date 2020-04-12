@@ -61,6 +61,7 @@ export default class Game extends React.Component {
     }
     newGame() {
         if (window.confirm("Vil du starte et nytt spill?")) {
+            this.unblur();
             this.setState(this.newGameState());
         } else {
             // Do nothing

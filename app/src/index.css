@@ -1,5 +1,5 @@
 body {
-  font: 14px "Century Gothic", Futura, sans-serif;
+  font: 24px "Century Gothic", Futura, sans-serif;
   margin: 20px;
   color: black;
   background:  rgb(226, 231, 226) 50%;
@@ -29,12 +29,11 @@ body {
 .square-blue, 
 .square-pink {
   float: left;
-  font-size: 24px;
+  font-size: 40px;
   font-weight: bold;
-  line-height: 34px;
+  line-height: 60px;
   height: 60px;
   margin: 5px;
-  padding: 0;
   text-align: center;
   vertical-align: middle;
   width: 60px;
@@ -48,18 +47,22 @@ body {
 .square-red {
   background: #e90404;
   border: 2px solid #690303;
+  color: #ffffffcc;
 }
 .square-pink {
   background: #f874f2;
   border: 2px solid #8d4189;
+  color: #ffffffcc;
 }
 .square-blue {
   background: #035dd3;
   border: 2px solid #023374;
+  color: #ffffffcc;
 }
 .square-green {
   background: #069e1a;
   border: 2px solid #044d0e;
+  color: #ffffffcc;
 }
 .square-hidden {
   visibility: hidden;
