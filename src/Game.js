@@ -13,8 +13,11 @@ const CATEGORIES = [
     "arkitektur", "design", "næringsliv", "film", "geografi",
     "historie", "kunst&scene", "litteratur", "mat&drikke", "mennesket",
     "musikk", "natur", "naturvitenskap", "politikk", "samfunn",
-    "sport&spill", "språk", "teknikk", "tradisjon&tro", "tv&radio"
+    "sport&spill", "språk", "teknikk", "tradisjon&tro", "tv&radio",
+    "tv-serier", "fotballens-stjerner", "storbyer", "kokkekunst"
 ]
+
+
 class NewGameButton extends React.Component {
 
     render() {
