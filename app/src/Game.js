@@ -4,6 +4,8 @@ import GameBoard from './GameBoard.js'
 import PlayerBoard from './PlayerBoard.js'
 import shuffle from 'shuffle-array'
 import { Beforeunload } from 'react-beforeunload';
+import WinScreen from './WinScreen.js';
+
 
 // order is important here, don't change it plz
 const COLORS = ["red", "green", "blue", "pink"];
@@ -37,12 +39,7 @@ class NewRoundButton extends React.Component {
 export default class Game extends React.Component {
     constructor(props) {
         super(props);
-        this.handleClick = this.handleClick.bind(this);
         this.state = this.newGameState();
-    }
-
-    handleClick = (e) => {
-        console.log(e.target);
     }
 
     move(direction, color) {
@@ -55,9 +52,6 @@ export default class Game extends React.Component {
             console.warn("Could not move: color=" + color + " direction=" + direction);
         }
         this.setState({ players: this.state.players });
-        if (this.state.players[color].isWinner()) {
-            alert("We have a winner! It is: " + color + "!")
-        }
     }
     newGame() {
         if (window.confirm("Vil du starte et nytt spill?")) {
@@ -118,6 +112,11 @@ export default class Game extends React.Component {
         });
         this.setState({ players: players })
     }
+    getWinner() {
+        console.log("getWinner");
+        console.log(COLORS.find(color => this.state.players[color].isWinner));
+        return COLORS.find(color => this.state.players[color].isWinner);
+    }
     render() {
         return (
             <div>
@@ -130,7 +129,6 @@ export default class Game extends React.Component {
                 <div className="game">
                     <div className="game-board">
                         <GameBoard
-                            handleClick={this.handleClick}
                             players={this.state.players}
                             colors={this.state.colors}
                         />
@@ -148,6 +146,8 @@ export default class Game extends React.Component {
                 <div className="bottom">
                     <NewGameButton players={this.state.players} onClick={this.newGame.bind(this)} />
                 </div>
+                <WinScreen players={this.state.players} onClick={this.newGame.bind(this)} getWinner={this.getWinner.bind(this)} />
+
             </div>
         );
     }

@@ -28,7 +28,7 @@ export default class Square extends React.Component {
                     + ".png";
                 return <img src={url} alt={playersOnThisSquare} />;
             } else {
-                return ""
+                return this.props.content;
             }
         } else {
             return this.props.content;

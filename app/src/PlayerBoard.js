@@ -71,6 +71,7 @@ export default class PlayerBoard extends React.Component {
             className="visible"
             src={url}
             alt={category}
+            title={category}
             draggable="true"
             onDrop={this.handleDrop.bind(this)}
             onDragOver={this.handleDragOver.bind(this)}

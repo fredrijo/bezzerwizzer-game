@@ -10,6 +10,7 @@
     "react": "^16.13.1",
     "react-beforeunload": "^2.1.0",
     "react-dom": "^16.13.1",
+    "react-gif-player": "^0.4.2",
     "react-native": "^0.62.1",
     "react-native-web": "^0.12.2",
     "react-scripts": "3.4.1",

@@ -23,25 +23,31 @@ body {
 }
 
 .square, 
+.square-brake, 
+.square-start,
 .square-hidden,
 .square-red, 
 .square-green, 
 .square-blue, 
 .square-pink {
   float: left;
+  user-select: none;
   font-size: 40px;
   font-weight: bold;
   line-height: 60px;
   height: 60px;
+  width: 60px;
   margin: 5px;
   text-align: center;
   vertical-align: middle;
-  width: 60px;
   color: #dddddd;
   border: 2px solid #999;
 }
 .square {
   background: #061b0c;
+}
+.square-brake, .square-start {
+  background: #393b3a;
 }
 
 .square-red {
@@ -104,4 +110,13 @@ body {
 }
 .blurred {
   opacity: 0.3;
+}
+
+.celebrate {
+  position: absolute;
+  top: 36%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 480x;
+  height: 640px;
 }
