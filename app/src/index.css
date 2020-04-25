@@ -1,0 +1,122 @@
+body {
+  font: 24px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+  color: black;
+  background:  rgb(226, 231, 226) 50%;
+}
+.top, .bottom {
+  margin-left: 60px;
+  width: 50%;
+  padding: 10px;
+}
+.new-game {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 34px;
+  padding: 0;
+  text-align: center;
+  width: 200px;
+  background: #dddddd;
+  color: #061b0c;
+  border: 2px solid #999;
+}
+
+.square, 
+.square-brake, 
+.square-start,
+.square-hidden,
+.square-red, 
+.square-green, 
+.square-blue, 
+.square-pink {
+  float: left;
+  user-select: none;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 60px;
+  height: 60px;
+  width: 60px;
+  margin: 5px;
+  text-align: center;
+  vertical-align: middle;
+  color: #dddddd;
+  border: 2px solid #999;
+}
+.square {
+  background: #061b0c;
+}
+.square-brake, .square-start {
+  background: #393b3a;
+}
+
+.square-red {
+  background: #e90404;
+  border: 2px solid #690303;
+  color: #ffffffcc;
+}
+.square-pink {
+  background: #f874f2;
+  border: 2px solid #8d4189;
+  color: #ffffffcc;
+}
+.square-blue {
+  background: #035dd3;
+  border: 2px solid #023374;
+  color: #ffffffcc;
+}
+.square-green {
+  background: #069e1a;
+  border: 2px solid #044d0e;
+  color: #ffffffcc;
+}
+.square-hidden {
+  visibility: hidden;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+
+.game-board {
+  width: 450px;
+  padding: 30px;
+  margin: 30px;
+  background: radial-gradient(circle, rgba(41,172,42,1) 0%, rgb(12, 51, 12) 100%);
+
+}
+.player-board {
+  padding: 30px;
+  margin: 30px;
+  background: radial-gradient(circle, rgb(110, 121, 110) 0%, rgb(190, 214, 190) 100%);
+}
+
+.visible {
+  opacity: 1.0;
+}
+.blurred {
+  opacity: 0.3;
+}
+
+.celebrate {
+  position: absolute;
+  top: 36%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  width: 480x;
+  height: 640px;
+}
