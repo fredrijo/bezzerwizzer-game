@@ -5,16 +5,15 @@ body {
   background:  rgb(226, 231, 226) 50%;
 }
 .top, .bottom {
-  margin-left: 60px;
-  width: 50%;
-  padding: 10px;
+  width: fit-content;
+  padding: 20px;
 }
 .button {
   font-size: 16px;
   font-weight: bold;
   height: 40px;
   padding: 8px;
-  margin-right: 30px;
+  margin: 10px;
   text-align: center;
   width: 200px;
   background: #dddddd;
@@ -83,25 +82,24 @@ body {
 }
 
 .game {
-  display: flex;
-  flex-direction: row;
-  vertical-align: middle;
-}
-
-.game-info {
-  margin-left: 20px;
+  display: flex;  
+  flex-wrap: wrap;
 }
 
 .game-board {
-  width: 450px;
-  padding: 30px;
-  margin: 30px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0px, 1fr));
+  width: fit-content;
+  padding: 20px;
+  margin: 20px;
   background: radial-gradient(circle, rgba(41,172,42,1) 0%, rgb(12, 51, 12) 100%);
-
 }
 .player-board {
-  padding: 30px;
-  margin: 30px;
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0px, 1fr));
+  padding: 20px;
+  margin: 20px;
+  width: fit-content;
   background: radial-gradient(circle, rgb(110, 121, 110) 0%, rgb(190, 214, 190) 100%);
 }
 

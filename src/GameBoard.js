@@ -1,6 +1,5 @@
 import React from 'react';
 import Square from './Square.js'
-import Row from './Row.js'
 
 export default class GameBoard extends React.Component {
     getClass(x, y) {
@@ -28,13 +27,12 @@ export default class GameBoard extends React.Component {
     render() {
         var rows = [];
         for (var y = 0; y < 6; y++) {
-            var row = [];
             for (var x = 0; x < 6; x++) {
-                row.push(<Square
+                rows.push(<Square
                     handleClick={this.props.handleClick}
                     x={x}
                     y={y}
-                    key={x}
+                    key={x + "_" + y}
                     type="game"
                     className={this.getClass(x, y)}
                     content={this.getContent(x, y)}
@@ -42,8 +40,7 @@ export default class GameBoard extends React.Component {
                     colors={this.props.colors}
                 />);
             }
-            rows.push(<Row cells={row} key={y} />);
         }
-        return rows;
+        return <div className="game-board">{rows}</div>;
     }
 }

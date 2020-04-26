@@ -133,28 +133,23 @@ export default class Game extends React.Component {
                     <Music text="Lag masse stemning" mp3="sandstorm" />
                 </div>
                 <div className="game">
-                    <div className="game-board">
-                        <GameBoard
-                            players={this.state.players}
-                            colors={this.state.colors}
-                        />
-                    </div>
-                    <div className="player-board" id="player-board">
-                        <PlayerBoard
-                            move={this.move.bind(this)}
-                            players={this.state.players}
-                            colors={this.state.colors}
-                            switchCategories={this.switchCategories.bind(this)}
-                        />
-
-                    </div>
+                    <GameBoard
+                        players={this.state.players}
+                        colors={this.state.colors}
+                    />
+                    <PlayerBoard
+                        move={this.move.bind(this)}
+                        players={this.state.players}
+                        colors={this.state.colors}
+                        switchCategories={this.switchCategories.bind(this)}
+                    />
                 </div>
                 <div className="bottom">
                     <NewGameButton players={this.state.players} onClick={this.newGame.bind(this)} />
                 </div>
                 <WinScreen players={this.state.players} onClick={this.newGame.bind(this)} getWinner={this.getWinner.bind(this)} />
 
-            </div>
+            </div >
         );
     }
 }

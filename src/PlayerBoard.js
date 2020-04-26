@@ -1,6 +1,5 @@
 import React from 'react'
 import Square from './Square.js'
-import Row from './Row.js'
 
 export default class PlayerBoard extends React.Component {
     hiddenSquare(key) {
@@ -115,39 +114,33 @@ export default class PlayerBoard extends React.Component {
     render() {
         let rows = [];
 
-        var top_row = [];
-        top_row.push(this.hiddenSquare(1));
-        top_row.push(this.hiddenSquare(2));
-        top_row.push(this.hiddenSquare(3));
-        top_row.push(this.dotSquare(4, 1));
-        top_row.push(this.dotSquare(5, 2));
-        top_row.push(this.dotSquare(6, 3));
-        top_row.push(this.dotSquare(7, 4));
-        top_row.push(this.hiddenSquare(8));
-        top_row.push(this.hiddenSquare(9));
-        rows.push(top_row)
+        rows.push(this.hiddenSquare("top" + 1));
+        rows.push(this.hiddenSquare("top" + 2));
+        rows.push(this.hiddenSquare("top" + 3));
+        rows.push(this.dotSquare("top" + 4, 1));
+        rows.push(this.dotSquare("top" + 5, 2));
+        rows.push(this.dotSquare("top" + 6, 3));
+        rows.push(this.dotSquare("top" + 7, 4));
+        rows.push(this.hiddenSquare("top" + 8));
+        rows.push(this.hiddenSquare("top" + 9));
 
         this.props.colors.map((color) => {
             var categories = this.props.players[color].categories;
-            var row = [];
-            row.push(this.playerSquare(1, color, "B"));
-            row.push(this.playerSquare(2, color, "B"));
-            row.push(this.playerSquare(3, color, "Z"));
-            row.push(this.categorySquare(4, color, 1, categories[0]));
-            row.push(this.categorySquare(5, color, 2, categories[1]));
-            row.push(this.categorySquare(6, color, 3, categories[2]));
-            row.push(this.categorySquare(7, color, 4, categories[3]));
-            row.push(this.moveBackwardSquare(8, color));
-            row.push(this.moveForwardSquare(9, color));
-
-            return rows.push(<Row cells={row} key={color} />);
+            rows.push(this.playerSquare(color + 1, color, "B"));
+            rows.push(this.playerSquare(color + 2, color, "B"));
+            rows.push(this.playerSquare(color + 3, color, "Z"));
+            rows.push(this.categorySquare(color + 4, color, 1, categories[0]));
+            rows.push(this.categorySquare(color + 5, color, 2, categories[1]));
+            rows.push(this.categorySquare(color + 6, color, 3, categories[2]));
+            rows.push(this.categorySquare(color + 7, color, 4, categories[3]));
+            rows.push(this.moveBackwardSquare(color + 8, color));
+            rows.push(this.moveForwardSquare(color + 9, color));
+            return void 0;
         }
         )
         return (
-            <div>
-                <div>
-                    {rows}
-                </div>
+            <div className="player-board">
+                {rows}
             </div>
         );
     }

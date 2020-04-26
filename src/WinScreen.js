@@ -36,11 +36,14 @@ class WinScreenChild extends React.Component {
     }
     randomGif() {
         var files = [
+            "clapping.gif",
             "di_caprio.gif",
-            // "japanese_dancer.gif",
-            "trippping_runner.gif",
             "gorilla.gif",
-            "clapping.gif"
+            "grandma.gif",
+            "hiphop.gif",
+            // "japanese_dancer.gif",
+            "rocky.gif",
+            "trippping_runner.gif",
         ];
         return shuffle(files)[0];
     }
