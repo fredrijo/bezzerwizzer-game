@@ -48,12 +48,14 @@ class WinScreenChild extends React.Component {
         return shuffle(files)[0];
     }
     render() {
-        return (<div className="celebrate">
-            <div>Vinneren er {this.getWinner()}</div>
-            <GifPlayer
-                gif={process.env.PUBLIC_URL + "/images/celebrations/" + this.randomGif()}
-                autoplay={true}>
-            </GifPlayer>
+        return (<div className="celebrate" id="celebrate">
+            <div>
+                <div >Vinneren er {this.getWinner()}</div>
+                <GifPlayer
+                    gif={process.env.PUBLIC_URL + "/images/celebrations/" + this.randomGif()}
+                    autoplay={true}>
+                </GifPlayer>
+            </div>
         </div>
         )
     }
