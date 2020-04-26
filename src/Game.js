@@ -5,6 +5,7 @@ import PlayerBoard from './PlayerBoard.js'
 import shuffle from 'shuffle-array'
 import { Beforeunload } from 'react-beforeunload';
 import WinScreen from './WinScreen.js';
+import Music from './Music.js'
 
 
 // order is important here, don't change it plz
@@ -22,9 +23,9 @@ class NewGameButton extends React.Component {
 
     render() {
         return (
-            <div className="new-game" onClick={this.props.onClick.bind(this)}>
+            <button className="button" onClick={this.props.onClick.bind(this)}>
                 Start nytt spill
-            </div>
+            </button>
         )
     }
 }
@@ -32,9 +33,9 @@ class NewGameButton extends React.Component {
 class NewRoundButton extends React.Component {
     render() {
         return (
-            <div className="new-game" onClick={this.props.onClick.bind(this)}>
+            <button className="button" onClick={this.props.onClick.bind(this)}>
                 Ny runde
-            </div>
+            </button>
         )
     }
 }
@@ -128,6 +129,8 @@ export default class Game extends React.Component {
                 <div className="top">
                     <h1>Bezzerwizzer</h1>
                     <NewRoundButton players={this.state.players} onClick={this.newRound.bind(this)} />
+                    <Music text="Lag litt stemning" mp3="kvitt_eller_dobbelt" />
+                    <Music text="Lag masse stemning" mp3="sandstorm" />
                 </div>
                 <div className="game">
                     <div className="game-board">
