@@ -1,5 +1,6 @@
 import React from 'react';
 import GifPlayer from 'react-gif-player';
+import shuffle from 'shuffle-array'
 
 export default class WinScreen extends React.Component {
     hasWinner() {
@@ -19,11 +20,35 @@ export default class WinScreen extends React.Component {
 }
 
 class WinScreenChild extends React.Component {
+    getWinner() {
+        switch (this.props.winner) {
+            case "red":
+                return "RØDT lag!"
+            case "blue":
+                return "BLÅTT lag!"
+            case "green":
+                return "GRØNT lag!"
+            case "pink":
+                return "ROSA lag!"
+            default:
+                return "et eller annet"
+        }
+    }
+    randomGif() {
+        var files = [
+            "di_caprio.gif",
+            // "japanese_dancer.gif",
+            "trippping_runner.gif",
+            "gorilla.gif",
+            "clapping.gif"
+        ];
+        return shuffle(files)[0];
+    }
     render() {
         return (<div className="celebrate">
-            <div>Vinneren er {this.props.winner}</div>
+            <div>Vinneren er {this.getWinner()}</div>
             <GifPlayer
-                gif={process.env.PUBLIC_URL + "/images/celebrate-large.gif"}
+                gif={process.env.PUBLIC_URL + "/images/celebrations/" + this.randomGif()}
                 autoplay={true}>
             </GifPlayer>
         </div>
