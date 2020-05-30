@@ -15,7 +15,7 @@ const CATEGORIES = [
     "historie", "kunst&scene", "litteratur", "mat&drikke", "mennesket",
     "musikk", "natur", "naturvitenskap", "politikk", "samfunn",
     "sport&spill", "språk", "teknikk", "tradisjon&tro", "tv&radio",
-    "tv-serier", "fotballens-stjerner", "storbyer", "kokkekunst"
+    //    "tv-serier", "fotballens-stjerner", "storbyer", "kokkekunst"
 ]
 
 
