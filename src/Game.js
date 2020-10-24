@@ -131,6 +131,8 @@ export default class Game extends React.Component {
                     <NewRoundButton players={this.state.players} onClick={this.newRound.bind(this)} />
                     <Music text="Lag litt stemning" mp3="kvitt_eller_dobbelt" />
                     <Music text="Lag masse stemning" mp3="sandstorm" />
+                    <Music text="H4U93N57U4" mp3="Haugenstua" />
+
                 </div>
                 <div className="game">
                     <GameBoard
