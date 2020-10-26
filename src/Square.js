@@ -23,7 +23,7 @@ export default class Square extends React.Component {
                     .map(player => player.color)
                     .join("-");
                 let url = process.env.PUBLIC_URL
-                    + '/images/player-'
+                    + '/images/players/player-'
                     + colorString
                     + ".png";
                 return <img src={url} alt={playersOnThisSquare} />;
