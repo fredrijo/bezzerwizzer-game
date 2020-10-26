@@ -25,12 +25,11 @@ export default class PlayerBoard extends React.Component {
         />;
     }
     playerSquare(key, color, content) {
-        let cls = "square-" + color;
         var span = <span className="visible" onClick={this.hide.bind(this)}>{content}</span>
         return <Square
             type="player"
             key={key}
-            className={cls}
+            className={"square-" + color + " clickable"}
             content={span}
             players={this.props.players}
             colors={this.props.colors}
@@ -81,7 +80,7 @@ export default class PlayerBoard extends React.Component {
     categorySquare(key, color, points, category) {
         return <Square key={key}
             type="category"
-            className="square"
+            className="square clickable"
             content={this.categoryImage(category)}
             player={color}
             points={points}
@@ -92,7 +91,7 @@ export default class PlayerBoard extends React.Component {
     }
     moveBackwardSquare(key, color) {
         return <Square key={key}
-            className={"square-" + color}
+            className={"square-" + color + " clickable"}
             content="⇦"
             player={color}
             type="moveBackward"
@@ -103,7 +102,7 @@ export default class PlayerBoard extends React.Component {
     }
     moveForwardSquare(key, color) {
         return <Square key={key}
-            className={"square-" + color}
+            className={"square-" + color + " clickable"}
             content="⇨"
             handleClick={this.props.move.bind(this, "forward", color)}
             players={this.props.players}

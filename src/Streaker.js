@@ -1,8 +1,14 @@
 import React from 'react'
-import { bounceIn, flipInX, rotateIn, rollIn, slideInUp, rotateInDownRight, fadeInRightBig, zoomInDown } from 'react-animations';
+import {
+    bounceIn, flipInX, rotateIn, rollIn, slideInUp, rotateInDownRight, fadeInRightBig,
+    zoomInDown, lightSpeedIn, hinge, rotateInUpLeft, pulse, rubberBand, shake
+} from 'react-animations';
 import Radium, { StyleRoot } from 'radium';
 
-const STYLES = [bounceIn, flipInX, rotateIn, rollIn, slideInUp, rotateInDownRight, fadeInRightBig, zoomInDown];
+const STYLES = [
+    bounceIn, flipInX, rotateIn, rollIn, slideInUp, rotateInDownRight, fadeInRightBig,
+    zoomInDown, lightSpeedIn, hinge, rotateInUpLeft, pulse, rubberBand, shake
+];
 const STREAKERS = ["homer.jpg", "ooh.jpg", "asian.jpg", "beard.jpg", "jump.jpg", "jagland.jpg", "stang.jpg", "schyyy.jpg"]
 
 export default class Streaker extends React.Component {
@@ -17,10 +23,7 @@ export default class Streaker extends React.Component {
     toggle() {
         if (Math.random() < this.props.probability) {
             this.showStreaker();
-        } else {
-            this.hideStreaker();
         }
-
     }
 
     getStyle() {
@@ -42,19 +45,18 @@ export default class Streaker extends React.Component {
         return {
             animation: 'x ' + time + 's',
             animationName: Radium.keyframes(style),
-            //width: 600,
-            //height: 600,
+            width: 100,
+            height: 100,
             top: '50%',
             bottom: '50%',
-            left: "50%",
-            right: "50%",
+            left: "70%",
+            right: "30%",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             position: "fixed",
             zIndex: "2",
-            cursor: "pointer"
-
+            border: "2px solid #999",
 
         }
     }
@@ -81,9 +83,8 @@ export default class Streaker extends React.Component {
         return (
             <StyleRoot>
                 <div style={this.getStyle()}>
-                    <div className="streaker" onClick={this.hideStreaker}>
-                        <img src={this.state.image} alt="Streaker" />
-                    </div>
+                    <img src={this.state.image} alt="Streaker" />
+                    <div class="button" onClick={this.hideStreaker}>Fang meg!</div>
                 </div>
             </StyleRoot>
 

@@ -18,7 +18,7 @@ const CATEGORIES = [
     "sport&spill", "språk", "teknikk", "tradisjon&tro", "tv&radio",
     "tv-serier", "fotballens-stjerner", "storbyer", "kokkekunst"
 ]
-const STREAKER_PROBABILITY = 0.1
+const STREAKER_PROBABILITY = 0.15
 class NewGameButton extends React.Component {
 
     render() {
@@ -132,8 +132,7 @@ export default class Game extends React.Component {
                     <Music text="Lag litt stemning" mp3="kvitt_eller_dobbelt" />
                     <Music text="Lag masse stemning" mp3="sandstorm" />
                     <Music text="H4U93N57U4" mp3="Haugenstua" />
-                    <Music text="Rock 🤘" mp3="Yesterday" />
-
+                    <Music text='"Rock"' mp3="Yesterday" />
                 </div>
                 <div className="game">
                     <GameBoard
