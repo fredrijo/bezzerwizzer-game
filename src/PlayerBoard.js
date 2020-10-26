@@ -63,7 +63,7 @@ export default class PlayerBoard extends React.Component {
     };
     categoryImage(category) {
         let url = process.env.PUBLIC_URL
-            + '/images/'
+            + '/images/tiles/'
             + category
             + ".png";
         return <img

@@ -4,8 +4,6 @@ import shuffle from 'shuffle-array'
 
 export default class WinScreen extends React.Component {
     hasWinner() {
-        console.log("hasWinner(): ");
-        console.log(this.props.getWinner() !== undefined);
         return this.props.getWinner() !== undefined;
     }
     render() {
