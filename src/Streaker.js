@@ -9,8 +9,8 @@ const STYLES = [
     bounceIn, flipInX, rotateIn, rollIn, slideInUp, rotateInDownRight, fadeInRightBig,
     zoomInDown, lightSpeedIn, hinge, rotateInUpLeft, pulse, rubberBand, shake
 ];
-const STREAKERS = ["homer.jpg", "ooh.jpg", "asian.jpg", "beard.jpg", "jump.jpg", "jagland.jpg", "stang.jpg", "schyyy.jpg"]
-
+const STREAKERS = ["homer.jpg", "ooh.jpg", "asian.jpg", "beard.jpg", "jump.jpg", "jagland.jpg",
+    "carrier.jpg", "lady.jpg", "mobile.jpg", "tackle.jpg", "cops.jpg", "blackandwhite.jpg"];
 export default class Streaker extends React.Component {
     constructor(props) {
         super(props);
@@ -45,19 +45,17 @@ export default class Streaker extends React.Component {
         return {
             animation: 'x ' + time + 's',
             animationName: Radium.keyframes(style),
-            width: 100,
-            height: 100,
-            top: '50%',
-            bottom: '50%',
-            left: "70%",
-            right: "30%",
+            width: 600,
+            height: 600,
+            top: '20%',
+            bottom: '20%',
+            left: "50%",
+            right: "20%",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             position: "fixed",
             zIndex: "2",
-            border: "2px solid #999",
-
         }
     }
     showStreaker() {
@@ -83,7 +81,7 @@ export default class Streaker extends React.Component {
         return (
             <StyleRoot>
                 <div style={this.getStyle()}>
-                    <img src={this.state.image} alt="Streaker" />
+                    <img src={this.state.image} alt="Streaker" class="streaker" />
                     <div class="button" onClick={this.hideStreaker}>Fang meg!</div>
                 </div>
             </StyleRoot>
