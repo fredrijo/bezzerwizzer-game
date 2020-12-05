@@ -3,11 +3,11 @@ import Player from './Player.js'
 import GameBoard from './GameBoard.js'
 import PlayerBoard from './PlayerBoard.js'
 import shuffle from 'shuffle-array'
-import { Beforeunload } from 'react-beforeunload';
-import WinScreen from './WinScreen.js';
+import { Beforeunload } from 'react-beforeunload'
+import WinScreen from './WinScreen.js'
 import Music from './Music.js'
 import Streaker from './Streaker.js'
-
+import Shock from './Shock.js'
 
 // order is important here, don't change it plz
 const COLORS = ["red", "green", "blue", "pink"];
@@ -45,7 +45,7 @@ export default class Game extends React.Component {
         super(props);
         this.state = this.newGameState();
         this.streaker = React.createRef();
-
+        this.shock = React.createRef();
     }
     move(direction, color) {
         this.streaker.current.toggle();
@@ -66,6 +66,9 @@ export default class Game extends React.Component {
         } else {
             // Do nothing
         }
+    }
+    buzz() {
+        this.shock.current.play();
     }
     unblur() {
         Array.from(document.querySelectorAll('.blurred')).map(el => el.className = "visible");
@@ -125,7 +128,6 @@ export default class Game extends React.Component {
         return (
             <div>
                 <Beforeunload onBeforeunload={() => "You'll lose your data!"} />
-
                 <div className="top">
                     <h1>Bezzerwizzer</h1>
                     <NewRoundButton players={this.state.players} onClick={this.newRound.bind(this)} />
@@ -145,6 +147,7 @@ export default class Game extends React.Component {
                         players={this.state.players}
                         colors={this.state.colors}
                         switchCategories={this.switchCategories.bind(this)}
+                        buzz={this.buzz.bind(this)}
                     />
                 </div>
                 <div className="bottom">
@@ -152,7 +155,7 @@ export default class Game extends React.Component {
                 </div>
                 <WinScreen players={this.state.players} onClick={this.newGame.bind(this)} getWinner={this.getWinner.bind(this)} />
                 <Streaker ref={this.streaker} probability={STREAKER_PROBABILITY} />
-
+                <Shock ref={this.shock} mp3="electriccurrent" />
             </div >
         );
     }

@@ -7,8 +7,12 @@ export default class Square extends React.Component {
         if (this.props && this.props.handleClick) {
             onClick = this.props.handleClick;
         }
+        var onContextMenu = (e) => e.preventDefault();
+        if (this.props && this.props.handleContextMenu) {
+            onContextMenu = this.props.handleContextMenu;
+        }
         return (
-            <div className={this.props.className} onClick={onClick}                >
+            <div className={this.props.className} onClick={onClick} onContextMenu={onContextMenu}>
                 {this.getContent()}
             </div>
         );

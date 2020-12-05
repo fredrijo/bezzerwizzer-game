@@ -37,7 +37,6 @@ export default class PlayerBoard extends React.Component {
         />;
     }
     hide(e) {
-        console.log(e);
         if (e.target.className === "visible") {
             e.target.className = "blurred";
         } else if (e.target.className === "blurred") {
@@ -77,6 +76,11 @@ export default class PlayerBoard extends React.Component {
         />
 
     }
+    buzz(e) {
+        e.preventDefault();
+        this.props.buzz();
+        this.hide(e);
+    }
     categorySquare(key, color, points, category) {
         return <Square key={key}
             type="category"
@@ -84,7 +88,8 @@ export default class PlayerBoard extends React.Component {
             content={this.categoryImage(category)}
             player={color}
             points={points}
-            handleClick={this.hide}
+            handleClick={this.hide.bind(this)}
+            handleContextMenu={this.buzz.bind(this)}
             players={this.props.players}
             colors={this.props.colors}
         />;

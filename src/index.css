@@ -137,3 +137,7 @@ body {
   height: auto;
   border: 2px solid #999;
 }
+.shock {
+  width: 100%;
+  height: 100%;
+}

@@ -81,8 +81,8 @@ export default class Streaker extends React.Component {
         return (
             <StyleRoot>
                 <div style={this.getStyle()}>
-                    <img src={this.state.image} alt="Streaker" class="streaker" />
-                    <div class="button" onClick={this.hideStreaker}>Fang meg!</div>
+                    <img src={this.state.image} alt="Streaker" className="streaker" />
+                    <div className="button" onClick={this.hideStreaker}>Fang meg!</div>
                 </div>
             </StyleRoot>
 
