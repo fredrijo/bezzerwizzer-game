@@ -10,13 +10,15 @@ const STYLES = [
     zoomInDown, lightSpeedIn, hinge, rotateInUpLeft, pulse, rubberBand, shake
 ];
 const STREAKERS = ["homer.jpg", "ooh.jpg", "asian.jpg", "beard.jpg", "jump.jpg", "jagland.jpg",
-    "carrier.jpg", "lady.jpg", "mobile.jpg", "tackle.jpg", "cops.jpg", "blackandwhite.jpg"];
+    "carrier.jpg", "lady.jpg", "mobile.jpg", "tackle.jpg", "cops.jpg", "blackandwhite.jpg",
+    "tennis.jpg", "rodney.jpg"];
 export default class Streaker extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
             showComponent: false,
+            streakers: STREAKERS.slice()
         };
         this.hideStreaker = this.hideStreaker.bind(this);
     }
@@ -59,16 +61,24 @@ export default class Streaker extends React.Component {
         }
     }
     showStreaker() {
-        let image = STREAKERS[Math.floor(Math.random() * STREAKERS.length)];
-        let url = process.env.PUBLIC_URL
-            + '/images/streakers/' + image;
 
+        let streaker = this.state.streakers[Math.floor(Math.random() * this.state.streakers.length)];
+        let url = process.env.PUBLIC_URL
+            + '/images/streakers/' + streaker;
+
+        // Remove streaker from state
+        let newStreakers = this.state.streakers.filter(item => item !== streaker);
+        if (newStreakers.length === 0) {
+            console.log("Reset streakers")
+            newStreakers = STREAKERS.slice();
+        }
+
+        console.log(this.state);
         this.setState({
             showComponent: true,
-            image: url
-        });
-        console.log(this.state)
-
+            image: url,
+            streakers: newStreakers
+        })
     }
 
     hideStreaker() {
