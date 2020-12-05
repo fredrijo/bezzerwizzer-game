@@ -11,13 +11,22 @@ import Shock from './Shock.js'
 
 // order is important here, don't change it plz
 const COLORS = ["red", "green", "blue", "pink"];
-const CATEGORIES = [
+
+const OLD_CATEGORIES = [
     "arkitektur", "design", "næringsliv", "film", "geografi",
     "historie", "kunst&scene", "litteratur", "mat&drikke", "mennesket",
     "musikk", "natur", "naturvitenskap", "politikk", "samfunn",
     "sport&spill", "språk", "teknikk", "tradisjon&tro", "tv&radio",
     "tv-serier", "fotballens-stjerner", "storbyer", "kokkekunst"
-]
+];
+
+const NEW_CATEGORIES = ["arkitektur", "design", "film", "geografi", "historie", "kjendiser", "kunst&scene",
+    "litteratur", "mat&drikke", "musikk", "natur", "naturvitenskap", "næringsliv", "politikk", "samfunn", "sport&spill",
+    "språk", "teknologi&spill", "tradisjon&tro", "tv&serier"
+];
+
+const CATEGORIES = NEW_CATEGORIES;
+
 const STREAKER_PROBABILITY = 0.2
 class NewGameButton extends React.Component {
 

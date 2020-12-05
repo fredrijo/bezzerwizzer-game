@@ -84,7 +84,7 @@ export default class PlayerBoard extends React.Component {
     categorySquare(key, color, points, category) {
         return <Square key={key}
             type="category"
-            className="square clickable"
+            className="square clickable small-text"
             content={this.categoryImage(category)}
             player={color}
             points={points}
