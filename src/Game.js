@@ -13,16 +13,19 @@ import Shock from './Shock.js'
 const COLORS = ["red", "green", "blue", "pink"];
 
 const OLD_CATEGORIES = [
-    "arkitektur", "design", "næringsliv", "film", "geografi",
-    "historie", "kunst&scene", "litteratur", "mat&drikke", "mennesket",
-    "musikk", "natur", "naturvitenskap", "politikk", "samfunn",
+    "arkitektur", "design", "film", "geografi", "historie",
+    "kunst&scene", "litteratur", "mat&drikke", "mennesket", "musikk",
+    "natur", "naturvitenskap", "næringsliv", "politikk", "samfunn",
     "sport&spill", "språk", "teknikk", "tradisjon&tro", "tv&radio",
+    // ekstra
     "tv-serier", "fotballens-stjerner", "storbyer", "kokkekunst"
 ];
 
-const NEW_CATEGORIES = ["arkitektur", "design", "film", "geografi", "historie", "kjendiser", "kunst&scene",
-    "litteratur", "mat&drikke", "musikk", "natur", "naturvitenskap", "næringsliv", "politikk", "samfunn", "sport&spill",
-    "språk", "teknologi&spill", "tradisjon&tro", "tv&serier"
+const NEW_CATEGORIES = [
+    "arkitektur-2020", "design-2020", "film-2020", "geografi-2020", "historie-2020",
+    "kjendiser-2020", "kunst&scene-2020", "litteratur-2020", "mat&drikke-2020", "musikk-2020",
+    "natur-2020", "naturvitenskap-2020", "næringsliv-2020", "politikk-2020", "samfunn-2020",
+    "sport-2020", "språk-2020", "teknologi&spill-2020", "tradisjon&tro-2020", "tv&serier-2020"
 ];
 
 const CATEGORIES = NEW_CATEGORIES;
