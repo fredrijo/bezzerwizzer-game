@@ -28,16 +28,35 @@ const NEW_CATEGORIES = [
     "sport-2020", "språk-2020", "teknologi&spill-2020", "tradisjon&tro-2020", "tv&serier-2020"
 ];
 
-const CATEGORIES = NEW_CATEGORIES;
-
 const STREAKER_PROBABILITY = 0.2
 class NewGameButton extends React.Component {
-
+    state = {
+        categories: "old"
+    }
+    setCategory(e) {
+        this.setState({
+            categories: e.target.value
+        });
+    }
     render() {
         return (
-            <button className="button" onClick={this.props.onClick.bind(this)}>
-                Start nytt spill
+            <div>
+                <button className="button" onClick={this.props.onClick.bind(this)}>
+                    Start nytt spill
             </button>
+                <select className="select" onChange={this.setCategory.bind(this)}>
+                    <option value="old"
+                        checked={this.state.categories === "old"}
+                    >
+                        Gamle kategorier
+                    </option>
+                    <option value="new"
+                        checked={this.state.categories === "new"}
+                    >
+                        Nye kategorier
+                    </option>
+                </select>
+            </div >
         )
     }
 }
@@ -58,6 +77,7 @@ export default class Game extends React.Component {
         this.state = this.newGameState();
         this.streaker = React.createRef();
         this.shock = React.createRef();
+        this.categorySelect = React.createRef();
     }
     move(direction, color) {
         this.streaker.current.toggle();
@@ -71,10 +91,12 @@ export default class Game extends React.Component {
         }
         this.setState({ players: this.state.players });
     }
-    newGame() {
+    newGame(e) {
+        console.log(e);
         if (window.confirm("Vil du starte et nytt spill?")) {
             this.unblur();
             this.setState(this.newGameState());
+            console.log(this.newGame.state);
         } else {
             // Do nothing
         }
@@ -89,7 +111,8 @@ export default class Game extends React.Component {
         if (window.confirm("Ny runde?")) {
             this.unblur();
             var players = {};
-            var categories = shuffle(CATEGORIES);
+            let selectedCategories = this.categorySelect.current.state.categories;
+            var categories = this.getCategories(selectedCategories);
             COLORS.map((color, idx) => {
                 var player = this.state.players[color];
                 player.drawCategories(idx, categories);
@@ -101,9 +124,25 @@ export default class Game extends React.Component {
             // Do nothing
         }
     }
+    getCategories(selectedCategories) {
+        if (selectedCategories === "old") {
+            return shuffle(OLD_CATEGORIES);
+        } else if (selectedCategories === "new") {
+            return shuffle(NEW_CATEGORIES);
+        } else {
+            console.log("SOMETHING WENT WRONG, NO CATEGORIES!");
+            console.log(this.state);
+        }
+
+    }
     newGameState() {
         var players = {};
-        var categories = shuffle(CATEGORIES);
+        let selectedCategories = "old";
+        if (this.categorySelect) {
+            console.log(this.categorySelect);
+            selectedCategories = this.categorySelect.current.state.categories;
+        }
+        var categories = this.getCategories(selectedCategories);
         COLORS.map((color, idx) => {
             var player = new Player(color, 0, 5);
             player.drawCategories(idx, categories);
@@ -163,7 +202,7 @@ export default class Game extends React.Component {
                     />
                 </div>
                 <div className="bottom">
-                    <NewGameButton players={this.state.players} onClick={this.newGame.bind(this)} />
+                    <NewGameButton ref={this.categorySelect} players={this.state.players} onClick={this.newGame.bind(this)} />
                 </div>
                 <WinScreen players={this.state.players} onClick={this.newGame.bind(this)} getWinner={this.getWinner.bind(this)} />
                 <Streaker ref={this.streaker} probability={STREAKER_PROBABILITY} />

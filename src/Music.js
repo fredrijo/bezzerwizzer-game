@@ -31,7 +31,7 @@ export default class Music extends Component {
 
         return (
             <span>
-                <button className="button" onClick={this.playAudio.bind(this)}>
+                <button className="music" onClick={this.playAudio.bind(this)}>
                     <span>{this.props.text}</span>
                 </button>
                 <audio id={this.props.mp3}>
