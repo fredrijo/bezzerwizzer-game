@@ -28,7 +28,7 @@ const NEW_CATEGORIES = [
     "sport-2020", "språk-2020", "teknologi&spill-2020", "tradisjon&tro-2020", "tv&serier-2020"
 ];
 
-const STREAKER_PROBABILITY = 0.2
+const STREAKER_PROBABILITY = 0.3
 class NewGameButton extends React.Component {
     state = {
         categories: "old"
@@ -182,11 +182,11 @@ export default class Game extends React.Component {
                 <div className="top">
                     <h1>Bezzerwizzer</h1>
                     <NewRoundButton players={this.state.players} onClick={this.newRound.bind(this)} />
-                    <Music text="Lag litt stemning" mp3="kvitt_eller_dobbelt" />
-                    <Music text="Lag masse stemning" mp3="sandstorm" />
+                    <Music text="Tenkemusikk" mp3="kvitt_eller_dobbelt" />
+                    <Music text="Lag bra stemning" mp3="i_got_a_feeling" />
                     <Music text="Lag dårlig stemning" mp3="Karius er deppa" />
                     <Music text="H4U93N57U4" mp3="Haugenstua" />
-                    <Music text='Rock' mp3="Vingle-Jonas" />
+                    <Music text='Rock' mp3="back in black" />
                 </div>
                 <div className="game">
                     <GameBoard
@@ -207,6 +207,8 @@ export default class Game extends React.Component {
                 <WinScreen players={this.state.players} onClick={this.newGame.bind(this)} getWinner={this.getWinner.bind(this)} />
                 <Streaker ref={this.streaker} probability={STREAKER_PROBABILITY} />
                 <Shock ref={this.shock} mp3="electriccurrent" />
+                <audio id="clap"><source src={process.env.PUBLIC_URL + "sounds/applause10.mp3"}></source></audio>
+
             </div >
         );
     }

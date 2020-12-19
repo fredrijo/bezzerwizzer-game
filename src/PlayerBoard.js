@@ -44,6 +44,11 @@ export default class PlayerBoard extends React.Component {
         }
     }
 
+    hideAndClap(e) {
+        this.hide(e);
+        document.getElementById("clap").play();
+    }
+
     handleDrag(e) {
         e.preventDefault();
         e.stopPropagation();
@@ -88,7 +93,7 @@ export default class PlayerBoard extends React.Component {
             content={this.categoryImage(category)}
             player={color}
             points={points}
-            handleClick={this.hide.bind(this)}
+            handleClick={this.hideAndClap.bind(this)}
             handleContextMenu={this.buzz.bind(this)}
             players={this.props.players}
             colors={this.props.colors}

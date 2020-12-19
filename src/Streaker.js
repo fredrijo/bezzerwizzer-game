@@ -11,7 +11,8 @@ const STYLES = [
 ];
 const STREAKERS = ["homer.jpg", "ooh.jpg", "asian.jpg", "beard.jpg", "jump.jpg", "jagland.jpg",
     "carrier.jpg", "lady.jpg", "mobile.jpg", "tackle.jpg", "cops.jpg", "blackandwhite.jpg",
-    "tennis.jpg", "rodney.jpg"];
+    "tennis.jpg", "rodney.jpg", "elegant.jpg", "ett_bryst.jpg", "lær.jpg", "lakk.jpg",
+    "hodegrep.jpg", "bikini.jpg", "cricket.jpg", "kreisklasse.jpg", "blotter.jpg"];
 export default class Streaker extends React.Component {
     constructor(props) {
         super(props);
