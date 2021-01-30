@@ -183,7 +183,7 @@ export default class Game extends React.Component {
                     <h1>Bezzerwizzer</h1>
                     <NewRoundButton players={this.state.players} onClick={this.newRound.bind(this)} />
                     <Music text="Tenkemusikk" mp3="kvitt_eller_dobbelt" />
-                    <Music text="Lag bra stemning" mp3="i_got_a_feeling" />
+                    <Music text="Lag bra stemning" mp3="Smile" />
                     <Music text="Lag dårlig stemning" mp3="Karius er deppa" />
                     <Music text="H4U93N57U4" mp3="Haugenstua" />
                     <Music text='Rock' mp3="back in black" />
