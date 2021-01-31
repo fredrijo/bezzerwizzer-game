@@ -55,7 +55,9 @@ body {
 .square-red, 
 .square-green, 
 .square-blue, 
-.square-pink {
+.square-pink,
+.green-is-stuck,
+.green-is-done {
   float: left;
   user-select: none;
   font-size: 40px;
@@ -170,4 +172,57 @@ body {
 
 .small-text {
   font-size: 12px;
+}
+
+.player-container {
+   float: left;
+   position: relative;
+  }
+
+.player-red {
+  z-index: 0;
+  position: absolute;
+}
+.player-green {
+  z-index: 1;
+  position: absolute;
+}
+.player-blue {
+  z-index: 2;
+  position: absolute;
+}
+.player-pink {
+  z-index: 3;
+  position: absolute;
+}
+.green-is-stuck {
+  background-image: url("/images/drip.gif");
+  border: 2px solid rgb(182, 0, 0);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+.green-is-done {
+  background-image: url("/images/yes.png");
+  border: 2px solid rgb(94, 255, 0);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  transform: scale(1);
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+0% {
+  transform: scale(0.95);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+}
+
+70% {
+  transform: scale(1);
+  box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+}
+
+100% {
+  transform: scale(0.95);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+}
 }
