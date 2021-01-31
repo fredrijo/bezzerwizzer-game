@@ -28,7 +28,7 @@ const NEW_CATEGORIES = [
     "sport-2020", "språk-2020", "teknologi&spill-2020", "tradisjon&tro-2020", "tv&serier-2020"
 ];
 
-const STREAKER_PROBABILITY = 0.3
+const STREAKER_PROBABILITY = 0.0
 class NewGameButton extends React.Component {
     state = {
         categories: "old"
