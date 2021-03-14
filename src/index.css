@@ -21,6 +21,14 @@ body {
   cursor: pointer;
 }
 
+.streaker-probability {
+  font-size: 14px;
+  height: 30px;
+  padding: 4px;
+  margin: 10px;
+  color: #061b0c;
+}
+
 .button {
   font-size: 16px;
   font-weight: bold;
@@ -196,14 +204,14 @@ body {
   position: absolute;
 }
 .green-is-stuck {
-  background-image: url("/images/drip.gif");
+  background-image: url("./backgrounds/drip.gif");
   border: 2px solid rgb(182, 0, 0);
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
   transform: scale(1);
   animation: pulse 2s infinite;
 }
 .green-is-done {
-  background-image: url("/images/yes.png");
+  background-image: url("./backgrounds/yes.png");
   border: 2px solid rgb(94, 255, 0);
   box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
   transform: scale(1);

@@ -28,7 +28,6 @@ const NEW_CATEGORIES = [
     "sport-2020", "språk-2020", "teknologi&spill-2020", "tradisjon&tro-2020", "tv&serier-2020"
 ];
 
-const STREAKER_PROBABILITY = 0.0
 class NewGameButton extends React.Component {
     state = {
         categories: "old"
@@ -152,7 +151,8 @@ export default class Game extends React.Component {
         console.log(players);
         return {
             players: players,
-            colors: COLORS
+            colors: COLORS,
+            streakerProbability: 20
         };
     }
     switchCategories(src, tgt) {
@@ -175,6 +175,10 @@ export default class Game extends React.Component {
     getWinner() {
         return COLORS.find(color => this.state.players[color].isWinner);
     }
+    setStreakerProbability = e => {
+        this.setState({ streakerProbability: e.currentTarget.value });
+    };
+
     render() {
         return (
             <div>
@@ -202,10 +206,15 @@ export default class Game extends React.Component {
                     />
                 </div>
                 <div className="bottom">
+                    <div className="streaker-probability">
+                        <input type="range" min="0" max="100" step="10" value={this.state.streakerProbability} onChange={this.setStreakerProbability} />
+                    Sjanse for streaker: {this.state.streakerProbability}%
+                </div>
+
                     <NewGameButton ref={this.categorySelect} players={this.state.players} onClick={this.newGame.bind(this)} />
                 </div>
                 <WinScreen players={this.state.players} onClick={this.newGame.bind(this)} getWinner={this.getWinner.bind(this)} />
-                <Streaker ref={this.streaker} probability={STREAKER_PROBABILITY} />
+                <Streaker ref={this.streaker} probability={this.state.streakerProbability} />
                 <Shock ref={this.shock} mp3="electriccurrent" />
                 <audio id="clap"><source src={process.env.PUBLIC_URL + "sounds/applause10.mp3"}></source></audio>
 

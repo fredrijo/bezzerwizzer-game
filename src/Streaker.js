@@ -24,7 +24,7 @@ export default class Streaker extends React.Component {
         this.hideStreaker = this.hideStreaker.bind(this);
     }
     toggle() {
-        if (Math.random() < this.props.probability) {
+        if (Math.random() * 100 < this.props.probability) {
             this.showStreaker();
         }
     }
