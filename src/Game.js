@@ -9,6 +9,8 @@ import Music from './Music.js'
 import Streaker from './Streaker.js'
 import Shock from './Shock.js'
 
+var _ = require('lodash');
+
 // order is important here, don't change it plz
 const COLORS = ["red", "green", "blue", "pink"];
 
@@ -28,6 +30,7 @@ const NEW_CATEGORIES = [
     "sport-2020", "språk-2020", "teknologi&spill-2020", "tradisjon&tro-2020", "tv&serier-2020"
 ];
 
+const STREAKER_PROBABILITY = 0.0
 class NewGameButton extends React.Component {
     state = {
         categories: "old"
@@ -112,13 +115,13 @@ export default class Game extends React.Component {
             var players = {};
             let selectedCategories = this.categorySelect.current.state.categories;
             var categories = this.getCategories(selectedCategories);
-            COLORS.map((color, idx) => {
+            this.state.colors.map((color, idx) => {
                 var player = this.state.players[color];
                 player.drawCategories(idx, categories);
                 players[color] = player;
                 return void 0;
             });
-            this.setState({ players: players })
+            this.setState({ players: players, colors: _.shuffle(this.state.colors) })
         } else {
             // Do nothing
         }
@@ -142,7 +145,8 @@ export default class Game extends React.Component {
             selectedCategories = this.categorySelect.current.state.categories;
         }
         var categories = this.getCategories(selectedCategories);
-        COLORS.map((color, idx) => {
+        var colors = _.shuffle(COLORS)
+        colors.map((color, idx) => {
             var player = new Player(color, 0, 5);
             player.drawCategories(idx, categories);
             players[color] = player;
@@ -151,14 +155,13 @@ export default class Game extends React.Component {
         console.log(players);
         return {
             players: players,
-            colors: COLORS,
-            streakerProbability: 20
+            colors: colors
         };
     }
     switchCategories(src, tgt) {
         console.log(src, tgt);
         var players = {};
-        COLORS.map(color => {
+        this.state.colors.map(color => {
             var player = this.state.players[color];
             for (var idx = 0; idx < player.categories.length; idx++) {
                 if (player.categories[idx] === src) {
@@ -175,10 +178,6 @@ export default class Game extends React.Component {
     getWinner() {
         return COLORS.find(color => this.state.players[color].isWinner);
     }
-    setStreakerProbability = e => {
-        this.setState({ streakerProbability: e.currentTarget.value });
-    };
-
     render() {
         return (
             <div>
@@ -206,15 +205,10 @@ export default class Game extends React.Component {
                     />
                 </div>
                 <div className="bottom">
-                    <div className="streaker-probability">
-                        <input type="range" min="0" max="100" step="10" value={this.state.streakerProbability} onChange={this.setStreakerProbability} />
-                    Sjanse for streaker: {this.state.streakerProbability}%
-                </div>
-
                     <NewGameButton ref={this.categorySelect} players={this.state.players} onClick={this.newGame.bind(this)} />
                 </div>
                 <WinScreen players={this.state.players} onClick={this.newGame.bind(this)} getWinner={this.getWinner.bind(this)} />
-                <Streaker ref={this.streaker} probability={this.state.streakerProbability} />
+                <Streaker ref={this.streaker} probability={STREAKER_PROBABILITY} />
                 <Shock ref={this.shock} mp3="electriccurrent" />
                 <audio id="clap"><source src={process.env.PUBLIC_URL + "sounds/applause10.mp3"}></source></audio>
 
