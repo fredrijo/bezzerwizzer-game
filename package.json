@@ -1,37 +1,22 @@
 {
-  "name": "bezzerwizzer-game",
+  "name": "bezzerwizzer-gamer",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "eslint-config-react-app": "^7.0.1",
     "lodash": "^4.17.21",
-    "radium": "^0.26.1",
-    "react": "^18.2.0",
+    "radium": "^0.26.2",
+    "react": "^16.8.0",
     "react-animations": "^1.0.0",
     "react-beforeunload": "^2.6.0",
-    "react-dom": "^18.2.0",
+    "react-dom": "^16.8.0",
     "react-gif-player": "^0.4.2",
     "shuffle-array": "^1.0.1"
   },
-  "devDependencies": {
-    "react-scripts": "^5.0.1",
-    "serve": "^14.2.1"
-  },
-  "engines": {
-    "node": "v20.6.0",
-    "npm": "10.0.0"
-  },
-  "description": "This project was bootstrapped with [Create React App]",
   "scripts": {
-    "dev": "react-scripts --openssl-legacy-provider start",
-    "start": "serve -s build",
+    "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "browserslist": {
     "production": [
@@ -44,5 +29,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-scripts": "^5.0.1"
   }
 }
