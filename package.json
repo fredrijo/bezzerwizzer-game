@@ -10,7 +10,9 @@
     "react-beforeunload": "^2.6.0",
     "react-dom": "^16.8.0",
     "react-gif-player": "^0.4.2",
-    "shuffle-array": "^1.0.1"
+    "shuffle-array": "^1.0.1",
+    "react-scripts": "^5.0.1"
+
   },
   "scripts": {
     "start": "react-scripts start",
@@ -31,6 +33,5 @@
     ]
   },
   "devDependencies": {
-    "react-scripts": "^5.0.1"
   }
 }
