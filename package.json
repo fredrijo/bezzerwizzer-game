@@ -3,22 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "lodash": "^4.17.21",
     "radium": "^0.26.2",
-    "react": "^16.8.0",
+    "react": "",
     "react-animations": "^1.0.0",
     "react-beforeunload": "^2.6.0",
-    "react-dom": "^16.8.0",
+    "react-dom": "^18.2.0",
     "react-gif-player": "^0.4.2",
-    "shuffle-array": "^1.0.1",
-    "react-scripts": "^5.0.1"
-
+    "react-scripts": "^5.0.1",
+    "shuffle-array": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "npm run build"
   },
   "browserslist": {
     "production": [
@@ -32,6 +31,19 @@
       "last 1 safari version"
     ]
   },
+  "overrides": {
+    "react-scripts": {
+      "nth-check": "2.1.1",
+      "webpack": "5.88.2"
+    },
+    "react-gif-player": {
+      "react": "^18.2.0"
+    },
+    "radium": {
+      "react": "^18.2.0"
+    }
+  },
   "devDependencies": {
+    "@babel/plugin-transform-private-property-in-object": "^7.22.11"
   }
 }
